@@ -15,38 +15,39 @@ if (argv.m) {
 	seeders : number of seeders if link is a magnet or torrent file (optional)
 	size : size del link (optional)
 	
-	*/
+    	*/
 	
-	// Select one option and comment the code not used:
-	
-	
-	// MODE 1 : node.js code
-	// ---------------------
-	
-	var movies = [];
-	
-	// Here must be a console.log() to return JSON.
-	console.log(JSON.stringify(movies));
-	
-	// ----------------------
-	
-	
-	
-	// MODE 2 : other languages. Extenal API code (recommended)
-	// --------------------------------------------------------
-	
-	var url = 'ENTER YOUR HTTP HERE';
-	
-	request(url, function(error, response, html) {
-	
-		if(!error) {
-			console.log(JSON.stringify(html));
-		}
-		else {
-			var empty = [];
-			console.log(JSON.stringify(empty));
-		}
-	});
-	
-	// --------------------------------------------------------
+    var urls = [];
+    var movies = [];
+    var numberOfPages = 10;
+
+    for(var j = 0; j < numberOfPages; j++) {
+    	url = util.format('http://yts.re/api/list.json?sort=seeds&quality=1080p&limit=20&set=%d', j);
+    	urls[j] = url;
+    }
+    
+    urls.forEach(function(item) {
+    
+    	request(item, function(error, response, html) {
+    	
+	    	if(!error) {
+	    		
+	    		var ytsMovieResponse = JSON.parse(html);
+	    		var ytsMovieList = ytsMovieResponse['MovieList'];
+	    		var numberOfMovies = parseInt(ytsMovieList.length);
+	    						
+	    		for (var i = 0; i < numberOfMovies; i++) {
+		    		var	movie = ytsMovieList[i];
+					//var json = { id : movie['ImdbCode'], title : movie['MovieTitleClean'], quality : movie['Quality'], year : movie['MovieYear'], rating : movie['MovieRating'], genre : movie['Genre'], seeders : movie['TorrentSeeds'], size : movie['SizeByte'], link : movie['TorrentMagnetUrl']};
+					var json = { id : movie['ImdbCode'], quality : movie['Quality'], seeders : movie['TorrentSeeds'], size : movie['SizeByte'], link : movie['TorrentMagnetUrl']};
+					movies.push(json);
+	    		}
+	    		
+	    		numberOfPages--;
+	    		if (numberOfPages == 0) {
+	    			console.log(JSON.stringify(movies));
+	    		}
+	    	}
+    	});
+    });
 }
