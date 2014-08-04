@@ -6,4 +6,4 @@
 - [Squire Stream Site](http://squireapp.com/streams/)
 
 ## This Stream
-First experiment around new Squire streams (http://www.squireapp.com). Download zip file and click on it. That's easy!
+First experiment around new Squire streams (http://www.squireapp.com). Download zip file, uncompress and double-clicking stm file. That's easy!
