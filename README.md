@@ -5,8 +5,11 @@
 - [Squire Site](http://www.squireapp.com)
 - [Squire Stream Site](http://squireapp.com/streams/)
 
-## This Stream
-First experiment around new Squire streams (http://www.squireapp.com). Download zip file, uncompress and double-clicking stm file. That's easy!
+## What is this? 
+This is a stream for [Squire](http://www.squireapp.com). If you don’t know what an stream is, [please read here](http://www.squireapp.com/streams).
+
+## What are you going to get?
+This stream will call YTS.re (torrent tracker) API and get you movies on Squire ready to stream.
 
 ## Installation
 Download or clone this repository and double click on the .stm file (template.stm on this case). The stream will be added automatically to Squire Helper. After a few seconds, the stream’s content will be available on “Movies” section on Squire.app.
