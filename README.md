@@ -1,4 +1,4 @@
-# Squire-Stream-Template
+# YTS Squire Stream
 
 <img src="https://s3.amazonaws.com/Squire_Contents/sites+resources/github+streamers/stream_icon.png" width="108" height="108" alt="Squire Stream Icon"/>
 
