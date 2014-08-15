@@ -19,7 +19,7 @@ if (argv.m) {
 	
     var urls = [];
     var movies = [];
-    var numberOfPages = 10;
+    var numberOfPages = 256;
 
     for(var j = 0; j < numberOfPages; j++) {
     	url = util.format('http://yts.re/api/list.json?sort=seeds&quality=1080p&limit=20&set=%d', j);
